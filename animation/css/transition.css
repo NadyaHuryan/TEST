@@ -1,0 +1,158 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html, body {
+    height: 100%;
+}
+
+body {
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite; /*infinite - бесконечная анимация*/
+    height: 100%;
+}
+
+/* animation: animation-name animation-duration animation-timing-function animation-delay animation-iteration-count animation-direction; */
+/* animation-name -  название анимации
+animation-duration - продолжительность одного цикла анимации
+animation-timing-function - как будет развиваться анимация между каждой парой ключевых кадров (функция)
+animation-delay - задержка анимации
+animation-iteration-count  - указывает, сколько раз проигрывается цикл анимации
+animation-direction - определяет, должна ли анимация воспроизводиться в обратном порядке в некоторых или во всех циклах
+*/
+
+
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+
+.swing {
+    width: 100px;
+    height: 100px;
+    margin: 100px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background-color: grey;
+
+}
+.swing:hover
+{
+        -webkit-animation: swing 1s ease;
+        animation: swing 1s ease;
+        -webkit-animation-iteration-count: 1;
+        animation-iteration-count: 5;
+}
+
+/*keyframes устанавливает ключевые кадры при анимации элемента*/
+
+@keyframes swing
+{
+    15%
+    {
+        -webkit-transform: translateX(7px);
+        transform: translateX(7px);
+    }
+    30%
+    {
+        -webkit-transform: translateX(-7px);
+        transform: translateX(-7px);
+    }
+    50%
+    {
+        -webkit-transform: translateX(5px);
+        transform: translateX(5px);
+    }
+    65%
+    {
+        -webkit-transform: translateX(-5px);
+        transform: translateX(-5px);
+    }
+    80%
+    {
+        -webkit-transform: translateX(4px);
+        transform: translateX(4px);
+    }
+    100%
+    {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+.color-circle{
+    border-radius: 50%; /* makes div a circle */
+
+    height: 300px;
+    width: 300px;
+    margin: 0 auto;
+    background-color: lightskyblue;
+
+   
+}
+.color-circle:hover {
+    /* animation settings */
+    animation-name: color-back; 
+    animation-duration: 4s;
+    animation-iteration-count: 4; /*количество итераций*/
+    margin-top: 100px;
+    animation-timing-function: linear;
+}
+
+@keyframes color-back { 
+    0%   {background-color:lightskyblue;}
+    25%  {background-color:lightyellow;}
+    50%  {background-color:lightcoral; }
+    75%  {background-color:lightgreen; }
+    100% {background-color:lightskyblue; }
+}
+
+
+.rect {
+    width: 100px;
+    height: 100px;
+    margin: 30px;
+    background-color: blue;
+    /* transition: all 1s cubic-bezier(0, 0, 1, 1) 5s; */
+    transition: background 0.5s, border-radius 5s; /* несколько свойств*/
+}
+.rect:hover {
+    background-color: blueviolet;
+    border-radius: 50%;
+}
+/* transition-property - указывает список свойств, которые будут анимироваться, по умолчанию all
+transition-duration - значение продолжительности анимации, ms или s
+transition-timing-function - поведение для анимации
+transition-delay - задержка времени до начала анимации
+transition - property  duration  timing-function  delay */
+
+.block {
+    width: 100px;
+    height: 100px;
+    background-color: cadetblue;
+    animation: blockNew 5s ease-in-out;
+
+}
+@keyframes blockNew {
+    0%{
+        margin-left: 0;
+    }
+    50% {
+        margin-left: 50%;
+    }
+    100% {
+        margin-left: 80%;
+    }
+}
